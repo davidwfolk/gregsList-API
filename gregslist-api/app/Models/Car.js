@@ -12,7 +12,7 @@ export default class Car {
   get Template() {
     return /*html*/ `
     <div class="col-4 border border-info rounded shadow">
-      <h1>Make: ${this.make}</h1>
+      <h3>Make: ${this.make}</h3>
       <h5>Model: ${this.model}</h5>
       <h5>Year: ${this.year}</h5>
       <h5>Price: ${this.price}</h5>

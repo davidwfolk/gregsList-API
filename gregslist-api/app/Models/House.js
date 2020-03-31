@@ -16,16 +16,16 @@ export default class House {
   get Template () {
     return /*html*/ `
     <div class="col-4 border border-info rounded shadow">
-      <h1>House Type: ${this.house}</h1>
-      <h5>Square Feet: ${this.squareFeet}</h5>
-      <h5>Year Built: ${this.year}</h5>
-      <h5>No. of Bedrooms: ${this.bedrooms}</h5>
-      <h5>No. of Bathrooms: ${this.bathrooms}</h5>
-      <h5>Garage: ${this.garage}</h5>
-      <h5>Levels: ${this.levels}</h5>
-      <h5>Home Price: ${this.price}</h5>
-      <h5>Description: ${this.description}</h5>
       <img class="img-fluid" src="${this.imgUrl}" />
+      <h5>Description: ${this.description}</h5>
+ <!-- <h6>House Type: ${this.house}</h6> 
+      <h6>Square Feet: ${this.squareFeet}</h6>  -->
+      <h6>Year Built: ${this.year}</h6> 
+      <h6>No. of Bedrooms: ${this.bedrooms}</h6>
+      <h6>No. of Bathrooms: ${this.bathrooms}</h6>
+ <!-- <h6>Garage: ${this.garage}</h5>  -->
+      <h6>Levels: ${this.levels}</h6>
+      <h6>Home Price: ${this.price}</h6>
       <button type="button" class="btn btn-danger btn-block" onclick="app.houseController.delete('${this.id}')">Delete</button>
     </div>`
   }
