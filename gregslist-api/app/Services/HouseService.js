@@ -18,15 +18,29 @@ class HouseService {
   })
   .catch (err => console.error(err))
 }
-  delete(index) {
-    _store.State.houses.splice(index, 1)
-  }
-  
-  create(newHouseObject) {
-    let newHouse = new House(newHouseObject)
-    _store.State.houses.push(newHouse)
-    console.log(newHouseObject)
-  }
+
+create(newHouseObject) {
+  // let newHouse = new House(newHouseObject)
+  // _store.State.houses.push(newHouse)
+  // console.log(newHouseObject)
+
+  _api.post('',newHouseObject)
+  .then(res => {
+    console.log('api.postHouse', res.data.data)
+    this.getHouses()
+  })
+  .catch (err => console.error(err))
+
+}
+    delete(houseId) {
+      _api.delete(houseId)
+      .then(res => {
+        console.log(res.data)
+        this.getHouses()
+      })
+      .catch(err => console.error(err))
+    
+    }
 
   constructor() {
     console.log("house service works")

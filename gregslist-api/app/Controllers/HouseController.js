@@ -15,22 +15,23 @@ function _drawHouses() {
 export default class HouseController {
 constructor () {
   console.log("hello from HouseController");
-  _drawHouses()
+  _store.subscribe('houses', _drawHouses)
 }
 
 create(event) {
   event.preventDefault() // prevents the page from refreshing
   let formData = event.target
-  debugger
   let newHouseObject = {
     house: formData.house.value,
     squareFeet: formData.squareFeet.value,
-    yearBuilt: formData.yearBuilt.value,
+    year: formData.year.value,
     bedrooms: formData.bedrooms.value,
     bathrooms: formData.bathrooms.value,
     garage: formData.garage.value,
     price: formData.price.value,
     imgUrl: formData.imgUrl.value,
+    description: formData.description.value,
+    levels: formData.levels.value
   }
 
   _houseService.create(newHouseObject)
@@ -40,8 +41,8 @@ create(event) {
 
 }
 
-delete(index) {
-  _houseService.delete(index)
+delete(houseId) {
+  _houseService.delete(houseId)
 }
 
 }
