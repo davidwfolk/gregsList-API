@@ -5,7 +5,7 @@ function _drawHouses() {
   let template = ''
   let houses = _store.State.houses
 
-  houses.forEach((house, index) => template += house.getTemplate(index))
+  houses.forEach(house => template += house.Template)
   document.getElementById("houses").innerHTML = template
 
 }
@@ -37,13 +37,11 @@ create(event) {
   formData.reset()
   // @ts-ignore
   $('#add-house-modal').modal('toggle')
-  _drawHouses()
 
 }
 
 delete(index) {
   _houseService.delete(index)
-  _drawHouses()
 }
 
 }

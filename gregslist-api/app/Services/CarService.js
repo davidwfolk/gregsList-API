@@ -1,6 +1,5 @@
 import Car from "../Models/Car.js"
 import _store from '../store.js'
-import store from "../store.js"
 
 // @ts-ignore
 let _api = axios.create({
@@ -16,7 +15,7 @@ class CarService {
     .then(res => {
       console.log(res.data)
       let cars = res.data.data.map (rawCarData => new Car (rawCarData))
-      store.commit('cars', cars)
+      _store.commit('cars', cars)
       // console.log(store.State)
 
     })
@@ -30,7 +29,7 @@ class CarService {
     // console.log(_store.State.cars)
     _api.post('', newCarObject)
     .then(res => {
-      console.log(res.data, 'api.post');
+      console.log('api.post', res.data.data);
       // NOTE this is one way to do create new car, the easier way is below store.commit
       // let newCar = new Car(res.data.data) 
       // // res.data.data. is specific car in this instance of the new Car array
@@ -51,7 +50,7 @@ class CarService {
   }
 
   bid(carId) {
-    let foundCar = store.State.cars.find(car => car.id == carId)
+    let foundCar = _store.State.cars.find(car => car.id == carId)
     if (foundCar) {
       foundCar.price += 100
       _api.put(carId, foundCar)

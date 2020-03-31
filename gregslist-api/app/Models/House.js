@@ -8,9 +8,11 @@ export default class House {
     this.garage = data.garage
     this.price = data.price
     this.imgUrl = data.imgUrl
+    this.id = data.id || data._id
+    this.levels = data.levels
   }
 
-  getTemplate (index) {
+  get Template () {
     return /*html*/ `
     <div class="col-4 border border-info rounded shadow">
       <h1>House Type: ${this.house}</h1>
@@ -21,7 +23,7 @@ export default class House {
       <h5>Garage: ${this.garage}</h5>
       <h5>Home Price: ${this.price}</h5>
       <img class="img-fluid" src="${this.imgUrl}" />
-      <button class="btn btn-danger btn-block" onclick="app.houseController.delete(${index})">Delete</button>
+      <button type="button" class="btn btn-danger btn-block" onclick="app.houseController.delete(${this.id})">Delete</button>
     </div>`
   }
 }
