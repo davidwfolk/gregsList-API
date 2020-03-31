@@ -16,6 +16,7 @@ class HouseService {
     let houses = res.data.data.map(rawHouseData => new House (rawHouseData))
     _store.commit('houses', houses)
   })
+  .catch (err => console.error(err))
 }
   delete(index) {
     _store.State.houses.splice(index, 1)

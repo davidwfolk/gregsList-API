@@ -15,7 +15,7 @@ function _drawHouses() {
 export default class HouseController {
 constructor () {
   console.log("hello from HouseController");
-  
+  _drawHouses()
 }
 
 create(event) {
