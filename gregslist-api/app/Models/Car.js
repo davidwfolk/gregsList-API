@@ -9,7 +9,7 @@ export default class Car {
     this.id = data.id || data._id
   }
 
-  getTemplate(index) {
+  get Template() {
     return /*html*/ `
     <div class="col-4 border border-info rounded shadow">
       <h1>Make: ${this.make}</h1>
@@ -20,7 +20,8 @@ export default class Car {
       <button class="btn btn-danger btn-block" onclick="app.carController.delete('${this.id}')">Delete</button>
       <button type="button" class="btn btn-success btn-block" onclick="app.carController.bid('${this.id}')">Bid Now!</button>
 
-    </div>`
+    </div>
+    `
   }
 
 
